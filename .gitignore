@@ -1,3 +1,7 @@
+# Vscode stuff
+.vscode
+.cph
+
 # Prerequisites
 *.d
 
