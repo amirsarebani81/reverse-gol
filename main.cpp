@@ -28,7 +28,7 @@ vector<vector<char>> check_all_possibilities(vector<vector<char>> table, int l) 
         vector<vector<char>> new_table(m, vector<char>(n, '.'));
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if(k & (1 << i * m + j))
+                if(k & (1 << i * n + j))
                     new_table[i][j] = '*';
             }
         }
