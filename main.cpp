@@ -1,67 +1,82 @@
 #include <iostream>
+#include <cstddef>
 #include <vector>
-using namespace std;
 
-vector<vector<char>> check_all_possibilities(vector<vector<char>>, int);
-bool does_make(vector<vector<char>>, vector<vector<char>>, int);
-vector<vector<int>> get_adjacents(vector<vector<char>>);
-vector<vector<char>> update_table(vector<vector<char>>);
-void print_table(vector<vector<char>>);
+#define EMPTY '.'
+#define MUSHROOM '*'
 
-int main() {
-    int m, n, l;
-    cin >> m >> n >> l;
+std::vector<std::vector<char>> check_all_possibilities(const std::vector<std::vector<char>> &, size_t);
+bool check_tables_conversion(const std::vector<std::vector<char>> &, const std::vector<std::vector<char>> &, size_t);
+std::vector<std::vector<int>> get_adjacents(const std::vector<std::vector<char>> &);
+std::vector<std::vector<char>> get_next_table(const std::vector<std::vector<char>> &);
+void print_table(const std::vector<std::vector<char>> &);
 
-    vector<vector<char>> table(m, vector<char>(n));
-    for (int i = 0; i < m; i++)
-        for (int j = 0; j < n; j++)
-            cin >> table[i][j];
+int main()
+{
+    size_t hight, width, level;
+    std::cin >> hight >> width >> level;
 
-    print_table(check_all_possibilities(table, l));
+    std::vector<std::vector<char>> table(hight, std::vector<char>(width));
+    for (size_t i = 0; i < hight; i++)
+        for (size_t j = 0; j < width; j++)
+            std::cin >> table[i][j];
+
+    print_table(check_all_possibilities(table, level));
 }
 
-vector<vector<char>> check_all_possibilities(vector<vector<char>> table, int l) {
-    int m = table.size();
-    int n = table[0].size();
+std::vector<std::vector<char>> check_all_possibilities(const std::vector<std::vector<char>> &final_table, size_t level)
+{
+    size_t hight = final_table.size(), width = final_table[0].size();
 
-    for (int k = 0; k < (1 << m * n); k++) {
-        vector<vector<char>> new_table(m, vector<char>(n, '.'));
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if(k & (1 << i * n + j))
-                    new_table[i][j] = '*';
-            }
-        }
+    for (size_t k = 0; k < (1 << hight * width); k++)
+    {
+        std::vector<std::vector<char>> initial_table(hight, std::vector<char>(width, EMPTY));
 
-        if (does_make(new_table, table, l)) {
-            return new_table;
-        }
+        for (size_t i = 0; i < hight; i++)
+            for (size_t j = 0; j < width; j++)
+                if (k & (1 << i * width + j))
+                    initial_table[i][j] = MUSHROOM;
+
+        if (check_tables_conversion(initial_table, final_table, level))
+            return initial_table;
     }
-    return vector<vector<char>>(0);
+
+    return std::vector<std::vector<char>>(0);
 }
 
-bool does_make(vector<vector<char>> old_table, vector<vector<char>> current_table, int l) {
-    for (int i = 0; i < l; i++) {
-        old_table = update_table(old_table);
-    }
-    return old_table == current_table;
+bool check_tables_conversion(const std::vector<std::vector<char>> &initial_table, const std::vector<std::vector<char>> &final_table, size_t l)
+{
+    std::vector<std::vector<char>> current_table = initial_table;
+
+    for (size_t i = 0; i < l; i++)
+        current_table = get_next_table(current_table);
+
+    return final_table == current_table;
 }
 
-vector<vector<int>> get_adjacents(vector<vector<char>> table) {
-    int m = table.size(), n = table[0].size();
-    vector<vector<int>> adjacents(m, vector<int> (n, 0));
+std::vector<std::vector<int>> get_adjacents(const std::vector<std::vector<char>> &table)
+{
+    size_t hight = table.size(), width = table[0].size();
+    std::vector<std::vector<int>> adjacents(hight, std::vector<int>(width, 0));
 
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            if (table[i][j] == '*') {
-                adjacents[(i + 1) % m][j]++;
-                adjacents[(i - 1 + m) % m][j]++;
-                adjacents[i][(j + 1) % n]++;
-                adjacents[i][(j - 1 + n) % n]++;
-                adjacents[(i + 1) % m][(j + 1) % n]++;
-                adjacents[(i + 1) % m][(j - 1 + n) % n]++;
-                adjacents[(i - 1 + m) % m][(j + 1) % n]++;
-                adjacents[(i - 1 + m) % m][(j - 1 + n) % n]++;
+    for (size_t i = 0; i < hight; i++)
+    {
+        for (size_t j = 0; j < width; j++)
+        {
+            if (table[i][j] == MUSHROOM)
+            {
+                for (int i_diff = -1; i_diff <= 1; i_diff++)
+                {
+                    for (int j_diff = -1; j_diff <= 1; j_diff++)
+                    {
+                        if (i_diff == 0 && j_diff == 0)
+                            continue;
+
+                        size_t new_i = (i + i_diff + hight) % hight;
+                        size_t new_j = (j + j_diff + width) % width;
+                        adjacents[new_i][new_j]++;
+                    }
+                }
             }
         }
     }
@@ -69,33 +84,42 @@ vector<vector<int>> get_adjacents(vector<vector<char>> table) {
     return adjacents;
 }
 
-vector<vector<char>> update_table(vector<vector<char>> table) {
-    int m = table.size(), n = table[0].size();
+// todo
+// from here
+std::vector<std::vector<char>> get_next_table(const std::vector<std::vector<char>> &table)
+{
+    size_t hight = table.size(), width = table[0].size();
 
-    vector<vector<char>> new_table = table;
-    vector<vector<int>> adjacents = get_adjacents(table);
+    std::vector<std::vector<char>> next_table = table;
+    std::vector<std::vector<int>> adjacents = get_adjacents(table);
 
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            if (table[i][j] == '*' && !(adjacents[i][j] == 2 || adjacents[i][j] == 3))
-                new_table[i][j] = '.';
-            if (table[i][j] == '.' && adjacents[i][j] == 3)
-                new_table[i][j] = '*';
+    for (size_t i = 0; i < hight; i++)
+    {
+        for (size_t j = 0; j < width; j++)
+        {
+            if (table[i][j] == MUSHROOM && !(adjacents[i][j] == 2 || adjacents[i][j] == 3))
+                next_table[i][j] = EMPTY;
+            if (table[i][j] == EMPTY && adjacents[i][j] == 3)
+                next_table[i][j] = MUSHROOM;
         }
     }
-    return new_table;
+    return next_table;
 }
 
-void print_table(vector<vector<char>> table) {
-    if (table.size() == 0) {
-        cout << "impossible\n";
+void print_table(const std::vector<std::vector<char>> &table)
+{
+    if (table.size() == 0)
+    {
+        std::cout << "impossible\n";
         return;
     }
 
-    for (vector<char> row : table) {
-        for (char cell : row) {
-            cout << cell;
+    for (std::vector<char> row : table)
+    {
+        for (char cell : row)
+        {
+            std::cout << cell;
         }
-        cout << endl;
+        std::cout << std::endl;
     }
 }
