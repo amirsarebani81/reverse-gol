@@ -1,3 +1,4 @@
+#! /bin/bash
 echo "compile main.cpp"
 g++ main.cpp -o main.exe && echo "run main.exe"
 echo "--------------------------------"
