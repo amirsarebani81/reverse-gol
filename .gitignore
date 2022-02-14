@@ -1,3 +1,6 @@
+# Build
+test/build
+
 # Vscode stuff
 .vscode
 .cph
