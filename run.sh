@@ -1,6 +1,6 @@
 #! /bin/bash
 echo "compile main.cpp"
-g++ main.cpp -o main.exe && echo "run main.exe"
+g++ main.cpp gol.hpp gol.cpp -o main.exe && echo "run main.exe"
 echo "--------------------------------"
 if [[ $# -eq 0 ]]; then
     ./main.exe
