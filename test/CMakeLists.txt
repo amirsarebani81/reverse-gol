@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 11)
 include(FetchContent)
 FetchContent_Declare(
   googletest
-  URL https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip
+  URL https://github.com/google/googletest/archive/c9461a9b55ba954df0489bab6420eb297bed846b.zip
 )
 
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
@@ -17,7 +17,7 @@ enable_testing()
 add_executable(
   gol_test
   ../gol.hpp
-  ../gol.cpp
+  ../table.hpp
   gol_test.cpp
 )
 target_link_libraries(
