@@ -10,19 +10,13 @@ int main()
 
     Table<char> table(height, width);
     for (std::size_t i = 0; i < height; i++)
-    {
         for (std::size_t j = 0; j < width; j++)
-        {
-            char tmp;
-            std::cin >> tmp;
-            table.set(i, j, tmp);
-        }
-    }
+            std::cin >> table[i][j];
 
     Gol gol(table, level);
     Table<char> result = gol.solve();
     if (result.empty())
         std::cout << "impossible" << std::endl;
     else
-        result.print();
+        std::cout << result;
 }
