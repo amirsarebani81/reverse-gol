@@ -3,86 +3,125 @@
 #include "../gol.hpp"
 #include "../table.hpp"
 
+Table<char> make_table(std::size_t height, std::size_t width, std::string input)
+{
+    Table<char> result = Table<char>(height, width);
+    for (std::size_t i = 0; i < height; i++)
+        for (std::size_t j = 0; j < width; j++)
+            result[i][j] = input[i * width + j];
 
-TEST(GetInitialTable, TestCase1) {
-    size_t h = 4, w = 5, l = 10;
-    Table<char> i(h, w, '.');
-    i[0][4] = '*';
-    i[1][2] = '*';
-    i[1][4] = '*';
-    i[2][1] = '*';
-    i[2][4] = '*';
-    i[3][2] = '*';
-    i[3][4] = '*';
-    Gol gol(i, l);
-    Table<char> r = gol.solve();
-    Table<char> o(h, w, '.');
-    o[0][2] = '*';
-    o[0][4] = '*';
-    o[1][3] = '*';
-    o[1][4] = '*';
-    o[2][0] = '*';
-    o[2][1] = '*';
-    o[2][3] = '*';
-    o[2][4] = '*';
-    o[3][0] = '*';
-
-    ASSERT_FALSE(r.empty());
-    ASSERT_EQ(r, o);
+    return result;
 }
 
-TEST(GetInitialTable, TestCase2) {
-    size_t h = 3, w = 3, l = 10;
-    Table<char> i(h, w, '*');
-    i[2][2] = '.';
-    Gol gol(i, l);
-    Table<char> r = gol.solve();
+// ------------------------------------------------------------------
+/*
+in
+4 5 10
+....*
+..*.*
+.*..*
+..*.*
 
-    ASSERT_TRUE(r.empty());
+out
+..*.*
+...**
+**.**
+*....
+*/
+TEST(GolSolve, TestCase1)
+{
+    std::string in = "....*..*.*.*..*..*.*";
+    std::string out = "..*.*...****.***....";
+    Table<char> res = Gol(make_table(4, 5, in), 10).solve();
+
+    ASSERT_FALSE(res.empty());
+    ASSERT_EQ(res, make_table(4, 5, out));
 }
 
-TEST(GetInitialTable, TestCase3) {
-    size_t h = 3, w = 3, l = 5;
-    Table<char> i(h, w, '.');
-    i[0][2] = '*';
-    i[1][1] = '*';
-    i[2][0] = '*';
-    i[2][2] = '*';
-    Gol gol(i, l);
-    Table<char> r = gol.solve();
+// ------------------------------------------------------------------
+/*
+in
+3 3 10
+***
+***
+*..
 
-    ASSERT_FALSE(r.empty());
-    ASSERT_EQ(r, i);
+out
+impossible
+*/
+TEST(GolSolve, TestCase2)
+{
+    std::string in = "*******..";
+    Table<char> res = Gol(make_table(3, 3, in), 10).solve();
+
+    ASSERT_TRUE(res.empty());
 }
 
-TEST(GetInitialTable, TestCase4) {
-    size_t h = 2, w = 2, l = 1;
-    Table<char> i(h, w, '.');
-    Gol gol(i, l);
-    Table<char> r = gol.solve();
+// ------------------------------------------------------------------
+/*
+in
+3 3 5
+..*
+.*.
+*.*
 
-    ASSERT_FALSE(r.empty());
-    ASSERT_EQ(r, i);
+out
+..*
+.*.
+*.*
+*/
+TEST(GolSolve, TestCase3)
+{
+    std::string in = "..*.*.*.*";
+    Table<char> res = Gol(make_table(3, 3, in), 5).solve();
+
+    ASSERT_FALSE(res.empty());
+    ASSERT_EQ(res, make_table(3, 3, in));
 }
 
-TEST(GetInitialTable, TestCase5) {
-    size_t h = 5, w = 3, l = 1;
+// ------------------------------------------------------------------
+/*
+in
+2 2 1
+..
+..
 
-    Table<char> i(h, w, '*');
-    i[1][0] = '.';
-    i[1][1] = '.';
-    i[1][2] = '.';
-    i[3][1] = '.';
-    i[3][2] = '.';
-    Gol gol(i, l);
-    Table<char> r = gol.solve();
-    Table<char> o(h, w, '.');
-    o[1][0] = '*';
-    o[2][0] = '*';
-    o[3][0] = '*';
-    o[4][0] = '*';
-    o[4][1] = '*';
+out
+..
+..
+*/
+TEST(GolSolve, TestCase4)
+{
+    std::string in = "....";
+    Table<char> res = Gol(make_table(2, 2, in), 1).solve();
 
-    ASSERT_FALSE(r.empty());
-    ASSERT_EQ(r, o);
+    ASSERT_FALSE(res.empty());
+    ASSERT_EQ(res, make_table(2, 2, in));
+}
+
+// ------------------------------------------------------------------
+/*
+in
+5 3 1
+***
+...
+***
+*..
+***
+
+out
+...
+*..
+*..
+*..
+**.
+*/
+TEST(GolSolve, TestCase5)
+{
+    std::string in = "***...****..***";
+    std::string out = "...*..*..*..**.";
+    Table<char> res = Gol(make_table(5, 3, in), 1).solve();
+
+    ASSERT_FALSE(res.empty());
+    ASSERT_EQ(res, make_table(5, 3, out));
 }
