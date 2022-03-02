@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.14)
-project(reverse_gol)
+cmake_minimum_required(VERSION 3.16)
+project(gol_test)
 
 set(CMAKE_CXX_STANDARD 11)
 

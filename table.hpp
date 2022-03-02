@@ -16,9 +16,6 @@ public:
     Table()
         : height(0), width(0), vec(std::vector<T>(0)) {}
 
-    Table(const Table &table)
-        : height(table.height), width(table.width), vec(table.vec) {}
-
     Table(const std::size_t h, const std::size_t w)
         : height(h), width(w), vec(std::vector<T>(h * w)) {}
 

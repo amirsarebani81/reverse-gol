@@ -1,11 +1,5 @@
-cmake_minimum_required(VERSION 3.0.0)
+cmake_minimum_required(VERSION 3.16.0)
 project(gol VERSION 0.1.0)
 
-include(CTest)
-enable_testing()
-
+add_compile_options(-Wall)
 add_executable(gol main.cpp)
-
-set(CPACK_PROJECT_NAME ${PROJECT_NAME})
-set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
-include(CPack)
