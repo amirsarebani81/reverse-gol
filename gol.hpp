@@ -13,6 +13,24 @@ private:
     Table<char> final;
     std::size_t level;
 
+    Table<char> update_imp(const Table<char> &table) const
+    {
+        Table<char> result = table;
+
+        for (std::size_t i = 0; i < table.get_height(); i++)
+        {
+            for (std::size_t j = 0; j < table.get_width(); j++)
+            {
+                int adj = mushrooms(table, i, j);
+                if (table[i][j] == MUSHROOM && !(adj == 2 || adj == 3))
+                    result[i][j] = EMPTY;
+                if (table[i][j] == EMPTY && adj == 3)
+                    result[i][j] = MUSHROOM;
+            }
+        }
+        return result;
+    }
+
 public:
     Gol(const Table<char> &table, const std::size_t lev)
         : final(table), level(lev) {}
@@ -51,29 +69,11 @@ public:
         }
     }
 
-    Table<char> update(const Table<char> &table) const
-    {
-        Table<char> result = table;
-
-        for (std::size_t i = 0; i < table.get_height(); i++)
-        {
-            for (std::size_t j = 0; j < table.get_width(); j++)
-            {
-                int adj = mushrooms(table, i, j);
-                if (table[i][j] == MUSHROOM && !(adj == 2 || adj == 3))
-                    result[i][j] = EMPTY;
-                if (table[i][j] == EMPTY && adj == 3)
-                    result[i][j] = MUSHROOM;
-            }
-        }
-        return result;
-    }
-
-    Table<char> update(const Table<char> &table, const std::size_t level) const
+    Table<char> update(const Table<char> &table, const std::size_t level = 1) const
     {
         Table<char> result = table;
         for (std::size_t i = 0; i < level; i++)
-            result = update(result);
+            result = update_imp(result);
         return result;
     }
 
