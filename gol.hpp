@@ -59,6 +59,13 @@ private:
 public:
     /**
      * @brief Construct a new Gol object
+     * 
+     */
+    Gol()
+        : final(Table<char>()), level(0) {}
+
+    /**
+     * @brief Construct a new Gol object
      *
      * @param table Final table of game
      * @param lev Number of levels
