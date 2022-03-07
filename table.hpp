@@ -115,7 +115,7 @@ public:
      * @return true
      * @return false
      */
-    bool operator!=(const Table<T> &table) const { return !(this == table); }
+    bool operator!=(const Table<T> &table) const { return !(this->operator==(table)); }
 };
 
 #endif
