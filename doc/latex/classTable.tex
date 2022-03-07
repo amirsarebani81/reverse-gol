@@ -1,0 +1,231 @@
+\hypertarget{classTable}{}\doxysection{Table$<$ T $>$ Class Template Reference}
+\label{classTable}\index{Table$<$ T $>$@{Table$<$ T $>$}}
+
+
+A wrapper class for std\+::vector that can use as a container for tables.  
+
+
+
+
+{\ttfamily \#include $<$table.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTable_ab126f00f70aae2b9f19d469867e5e285}{Table}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classTable}{Table}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTable_a80467494882e832b113743b5c7419853}{Table}} (const std\+::size\+\_\+t h, const std\+::size\+\_\+t w)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classTable}{Table}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTable_a0ac9624824ed609f8e932aceb632efad}{Table}} (const std\+::size\+\_\+t h, const std\+::size\+\_\+t w, T v)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classTable}{Table}} object. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classTable_ad6cda0c0acfa68b6d46d67afb0fc7ca2}{get\+\_\+height}} () const
+\begin{DoxyCompactList}\small\item\em Get the height object. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classTable_a3686322461f2f50c4fdc09b9e585e974}{get\+\_\+width}} () const
+\begin{DoxyCompactList}\small\item\em Get the width object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTable_a9173d14ebdfc77fd23470c971a97e259}{empty}} () const
+\begin{DoxyCompactList}\small\item\em Check whether container is empty. \end{DoxyCompactList}\item 
+std\+::vector$<$ T $>$\+::iterator \mbox{\hyperlink{classTable_a1052d2d39d4441bedb035a96e02d6737}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{]} operator \end{DoxyCompactList}\item 
+std\+::vector$<$ T $>$\+::const\+\_\+iterator \mbox{\hyperlink{classTable_ab372761436fa760d915ca16c316bdacf}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t index) const
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{]} operator \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTable_aa61a7110f1b1657d06a8845800827074}{operator==}} (const \mbox{\hyperlink{classTable}{Table}}$<$ T $>$ \&table) const
+\begin{DoxyCompactList}\small\item\em == operator \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTable_a6ba7bd4a79af75c868910d14fc7d748c}{operator!=}} (const \mbox{\hyperlink{classTable}{Table}}$<$ T $>$ \&table) const
+\begin{DoxyCompactList}\small\item\em != operator \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Table$<$ T $>$}
+
+A wrapper class for std\+::vector that can use as a container for tables. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the elements \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTable_ab126f00f70aae2b9f19d469867e5e285}\label{classTable_ab126f00f70aae2b9f19d469867e5e285}} 
+\index{Table$<$ T $>$@{Table$<$ T $>$}!Table@{Table}}
+\index{Table@{Table}!Table$<$ T $>$@{Table$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Table()}{Table()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classTable}{Table}}$<$ T $>$\+::\mbox{\hyperlink{classTable}{Table}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classTable}{Table}} object. 
+
+\mbox{\Hypertarget{classTable_a80467494882e832b113743b5c7419853}\label{classTable_a80467494882e832b113743b5c7419853}} 
+\index{Table$<$ T $>$@{Table$<$ T $>$}!Table@{Table}}
+\index{Table@{Table}!Table$<$ T $>$@{Table$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Table()}{Table()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classTable}{Table}}$<$ T $>$\+::\mbox{\hyperlink{classTable}{Table}} (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{h,  }\item[{const std\+::size\+\_\+t}]{w }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classTable}{Table}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & Height of table \\
+\hline
+{\em w} & Width of table \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTable_a0ac9624824ed609f8e932aceb632efad}\label{classTable_a0ac9624824ed609f8e932aceb632efad}} 
+\index{Table$<$ T $>$@{Table$<$ T $>$}!Table@{Table}}
+\index{Table@{Table}!Table$<$ T $>$@{Table$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Table()}{Table()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classTable}{Table}}$<$ T $>$\+::\mbox{\hyperlink{classTable}{Table}} (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{h,  }\item[{const std\+::size\+\_\+t}]{w,  }\item[{T}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classTable}{Table}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & Height of table \\
+\hline
+{\em w} & Width of table \\
+\hline
+{\em v} & Initial value of table cells \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTable_a9173d14ebdfc77fd23470c971a97e259}\label{classTable_a9173d14ebdfc77fd23470c971a97e259}} 
+\index{Table$<$ T $>$@{Table$<$ T $>$}!empty@{empty}}
+\index{empty@{empty}!Table$<$ T $>$@{Table$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classTable}{Table}}$<$ T $>$\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check whether container is empty. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTable_ad6cda0c0acfa68b6d46d67afb0fc7ca2}\label{classTable_ad6cda0c0acfa68b6d46d67afb0fc7ca2}} 
+\index{Table$<$ T $>$@{Table$<$ T $>$}!get\_height@{get\_height}}
+\index{get\_height@{get\_height}!Table$<$ T $>$@{Table$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get\_height()}{get\_height()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::size\+\_\+t \mbox{\hyperlink{classTable}{Table}}$<$ T $>$\+::get\+\_\+height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the height object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::size\+\_\+t 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTable_a3686322461f2f50c4fdc09b9e585e974}\label{classTable_a3686322461f2f50c4fdc09b9e585e974}} 
+\index{Table$<$ T $>$@{Table$<$ T $>$}!get\_width@{get\_width}}
+\index{get\_width@{get\_width}!Table$<$ T $>$@{Table$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get\_width()}{get\_width()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::size\+\_\+t \mbox{\hyperlink{classTable}{Table}}$<$ T $>$\+::get\+\_\+width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the width object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::size\+\_\+t 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTable_a6ba7bd4a79af75c868910d14fc7d748c}\label{classTable_a6ba7bd4a79af75c868910d14fc7d748c}} 
+\index{Table$<$ T $>$@{Table$<$ T $>$}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Table$<$ T $>$@{Table$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classTable}{Table}}$<$ T $>$\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTable}{Table}}$<$ T $>$ \&}]{table }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+!= operator 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & rvalue \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTable_aa61a7110f1b1657d06a8845800827074}\label{classTable_aa61a7110f1b1657d06a8845800827074}} 
+\index{Table$<$ T $>$@{Table$<$ T $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!Table$<$ T $>$@{Table$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classTable}{Table}}$<$ T $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTable}{Table}}$<$ T $>$ \&}]{table }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+== operator 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & rvalue \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTable_a1052d2d39d4441bedb035a96e02d6737}\label{classTable_a1052d2d39d4441bedb035a96e02d6737}} 
+\index{Table$<$ T $>$@{Table$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Table$<$ T $>$@{Table$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$T$>$\+::iterator \mbox{\hyperlink{classTable}{Table}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{[}\mbox{]} operator 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+T$>$\+::iterator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTable_ab372761436fa760d915ca16c316bdacf}\label{classTable_ab372761436fa760d915ca16c316bdacf}} 
+\index{Table$<$ T $>$@{Table$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Table$<$ T $>$@{Table$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$T$>$\+::const\+\_\+iterator \mbox{\hyperlink{classTable}{Table}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{[}\mbox{]} operator 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+T$>$\+::const\+\_\+iterator 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+table.\+hpp\end{DoxyCompactItemize}

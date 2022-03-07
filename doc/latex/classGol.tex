@@ -1,0 +1,110 @@
+\hypertarget{classGol}{}\doxysection{Gol Class Reference}
+\label{classGol}\index{Gol@{Gol}}
+
+
+A class that helps to process game of life tables.  
+
+
+
+
+{\ttfamily \#include $<$gol.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGol_a127b69d1f0c06910a8030b0cebc1e7c2}{Gol}} (const \mbox{\hyperlink{classTable}{Table}}$<$ char $>$ \&table, const std\+::size\+\_\+t lev)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classGol}{Gol}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTable}{Table}}$<$ char $>$ \mbox{\hyperlink{classGol_a50089cc78379a56c616ae87aa357350e}{solve}} () const
+\begin{DoxyCompactList}\small\item\em Return initial table of game or empty table if impossible to solve. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTable}{Table}}$<$ char $>$ \mbox{\hyperlink{classGol_af4f5dc97796828bb3c6a639f592b62e4}{update}} (const \mbox{\hyperlink{classTable}{Table}}$<$ char $>$ \&table, const std\+::size\+\_\+t level=1) const
+\begin{DoxyCompactList}\small\item\em Update table. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classGol_a21744223dbf4d2cfaf352ba350c6be10}{mushrooms}} (const \mbox{\hyperlink{classTable}{Table}}$<$ char $>$ \&table, const std\+::size\+\_\+t index1, const std\+::size\+\_\+t index2) const
+\begin{DoxyCompactList}\small\item\em Get number of adjacent mushrooms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that helps to process game of life tables. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGol_a127b69d1f0c06910a8030b0cebc1e7c2}\label{classGol_a127b69d1f0c06910a8030b0cebc1e7c2}} 
+\index{Gol@{Gol}!Gol@{Gol}}
+\index{Gol@{Gol}!Gol@{Gol}}
+\doxysubsubsection{\texorpdfstring{Gol()}{Gol()}}
+{\footnotesize\ttfamily Gol\+::\+Gol (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTable}{Table}}$<$ char $>$ \&}]{table,  }\item[{const std\+::size\+\_\+t}]{lev }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classGol}{Gol}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Final table of game \\
+\hline
+{\em lev} & Number of levels \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGol_a21744223dbf4d2cfaf352ba350c6be10}\label{classGol_a21744223dbf4d2cfaf352ba350c6be10}} 
+\index{Gol@{Gol}!mushrooms@{mushrooms}}
+\index{mushrooms@{mushrooms}!Gol@{Gol}}
+\doxysubsubsection{\texorpdfstring{mushrooms()}{mushrooms()}}
+{\footnotesize\ttfamily int Gol\+::mushrooms (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTable}{Table}}$<$ char $>$ \&}]{table,  }\item[{const std\+::size\+\_\+t}]{index1,  }\item[{const std\+::size\+\_\+t}]{index2 }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get number of adjacent mushrooms. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & \\
+\hline
+{\em index1} & \\
+\hline
+{\em index2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGol_a50089cc78379a56c616ae87aa357350e}\label{classGol_a50089cc78379a56c616ae87aa357350e}} 
+\index{Gol@{Gol}!solve@{solve}}
+\index{solve@{solve}!Gol@{Gol}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTable}{Table}}$<$char$>$ Gol\+::solve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return initial table of game or empty table if impossible to solve. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classTable}{Table$<$char$>$}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGol_af4f5dc97796828bb3c6a639f592b62e4}\label{classGol_af4f5dc97796828bb3c6a639f592b62e4}} 
+\index{Gol@{Gol}!update@{update}}
+\index{update@{update}!Gol@{Gol}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTable}{Table}}$<$char$>$ Gol\+::update (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTable}{Table}}$<$ char $>$ \&}]{table,  }\item[{const std\+::size\+\_\+t}]{level = {\ttfamily 1} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Update table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & Initial table \\
+\hline
+{\em level} & Number of updates \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classTable}{Table$<$char$>$}} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+gol.\+hpp\end{DoxyCompactItemize}

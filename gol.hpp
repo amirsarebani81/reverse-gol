@@ -7,6 +7,10 @@
 #define EMPTY '.'
 #define MUSHROOM '*'
 
+/**
+ * @brief A class that helps to process game of life tables
+ *
+ */
 class Gol
 {
 private:
@@ -31,23 +35,6 @@ private:
         return result;
     }
 
-public:
-    Gol(const Table<char> &table, const std::size_t lev)
-        : final(table), level(lev) {}
-
-    Table<char> solve() const
-    {
-        Table<char> t(final.get_height(), final.get_width(), EMPTY);
-        const size_t bound = static_cast<std::size_t>(1) << final.get_height() * final.get_width();
-        for (size_t k = 0; k < bound; k++)
-        {
-            if (final == update(t, level))
-                return t;
-            next(t);
-        }
-        return Table<char>();
-    }
-
     void next(Table<char> &table) const
     {
         if (table[0][0] == EMPTY)
@@ -69,6 +56,41 @@ public:
         }
     }
 
+public:
+    /**
+     * @brief Construct a new Gol object
+     *
+     * @param table Final table of game
+     * @param lev Number of levels
+     */
+    Gol(const Table<char> &table, const std::size_t lev)
+        : final(table), level(lev) {}
+
+    /**
+     * @brief Return initial table of game or empty table if impossible to solve
+     *
+     * @return Table<char>
+     */
+    Table<char> solve() const
+    {
+        Table<char> t(final.get_height(), final.get_width(), EMPTY);
+        const size_t bound = static_cast<std::size_t>(1) << final.get_height() * final.get_width();
+        for (size_t k = 0; k < bound; k++)
+        {
+            if (final == update(t, level))
+                return t;
+            next(t);
+        }
+        return Table<char>();
+    }
+
+    /**
+     * @brief Update table
+     *
+     * @param table Initial table
+     * @param level Number of updates
+     * @return Table<char>
+     */
     Table<char> update(const Table<char> &table, const std::size_t level = 1) const
     {
         Table<char> result = table;
@@ -77,6 +99,14 @@ public:
         return result;
     }
 
+    /**
+     * @brief Get number of adjacent mushrooms
+     *
+     * @param table
+     * @param index1
+     * @param index2
+     * @return int
+     */
     int mushrooms(const Table<char> &table, const std::size_t index1, const std::size_t index2) const
     {
         int result = 0;
