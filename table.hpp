@@ -83,7 +83,7 @@ public:
      * @param index
      * @return std::vector<T>::iterator
      */
-    typename std::vector<T>::iterator operator[](std::size_t index) { return vec.begin() + index * get_width(); }
+    auto operator[](std::size_t index) { return vec.begin() + index * get_width(); }
 
     /**
      * @brief [] operator
@@ -91,7 +91,7 @@ public:
      * @param index
      * @return std::vector<T>::const_iterator
      */
-    typename std::vector<T>::const_iterator operator[](std::size_t index) const
+    auto operator[](std::size_t index) const
     {
         return vec.cbegin() + index * get_width();
     }

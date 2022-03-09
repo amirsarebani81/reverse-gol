@@ -13,8 +13,8 @@ int main()
         for (std::size_t j = 0; j < width; j++)
             std::cin >> table[i][j];
 
-    Gol gol(table, level);
-    Table<char> result = gol.solve();
+    const Gol gol(table, level);
+    const Table<char> result = gol.solve();
     if (result.empty())
         std::cout << "impossible" << std::endl;
     else

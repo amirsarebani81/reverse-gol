@@ -15,7 +15,7 @@ class Gol
 {
 private:
     Table<char> final;
-    std::size_t level;
+    std::size_t step;
 
     Table<char> update_imp(const Table<char> &table) const
     {
@@ -25,7 +25,7 @@ private:
         {
             for (std::size_t j = 0; j < table.get_width(); j++)
             {
-                int adj = mushrooms(table, i, j);
+                const int adj = mushrooms(table, i, j);
                 if (table[i][j] == MUSHROOM && !(adj == 2 || adj == 3))
                     result[i][j] = EMPTY;
                 if (table[i][j] == EMPTY && adj == 3)
@@ -59,19 +59,19 @@ private:
 public:
     /**
      * @brief Construct a new Gol object
-     * 
+     *
      */
     Gol()
-        : final(Table<char>()), level(0) {}
+        : final(Table<char>()), step(0) {}
 
     /**
      * @brief Construct a new Gol object
      *
      * @param table Final table of game
-     * @param lev Number of levels
+     * @param step Number of steps
      */
-    Gol(const Table<char> &table, const std::size_t lev)
-        : final(table), level(lev) {}
+    Gol(const Table<char> &table, const std::size_t step)
+        : final(table), step(step) {}
 
     /**
      * @brief Return initial table of game or empty table if impossible to solve
@@ -84,7 +84,7 @@ public:
         const size_t bound = static_cast<std::size_t>(1) << final.get_height() * final.get_width();
         for (size_t k = 0; k < bound; k++)
         {
-            if (final == update(t, level))
+            if (final == update(t, step))
                 return t;
             next(t);
         }
@@ -95,13 +95,13 @@ public:
      * @brief Update table
      *
      * @param table Initial table
-     * @param level Number of updates
+     * @param step Number of steps
      * @return Table<char>
      */
-    Table<char> update(const Table<char> &table, const std::size_t level = 1) const
+    Table<char> update(const Table<char> &table, const std::size_t step = 1) const
     {
         Table<char> result = table;
-        for (std::size_t i = 0; i < level; i++)
+        for (std::size_t i = 0; i < step; i++)
             result = update_imp(result);
         return result;
     }
