@@ -14,11 +14,11 @@ A class that helps to process game of life tables.
 \item 
 \mbox{\hyperlink{classGol_ac440be8efd9b36760e7ca3a595d75423}{Gol}} ()
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classGol}{Gol}} object. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classGol_a127b69d1f0c06910a8030b0cebc1e7c2}{Gol}} (const \mbox{\hyperlink{classTable}{Table}}$<$ char $>$ \&table, const std\+::size\+\_\+t lev)
+\mbox{\hyperlink{classGol_a703e0252524f43c9b88d1085e84f7f4d}{Gol}} (const \mbox{\hyperlink{classTable}{Table}}$<$ char $>$ \&table, const std\+::size\+\_\+t step)
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classGol}{Gol}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classTable}{Table}}$<$ char $>$ \mbox{\hyperlink{classGol_a50089cc78379a56c616ae87aa357350e}{solve}} () const
 \begin{DoxyCompactList}\small\item\em Return initial table of game or empty table if impossible to solve. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classTable}{Table}}$<$ char $>$ \mbox{\hyperlink{classGol_af4f5dc97796828bb3c6a639f592b62e4}{update}} (const \mbox{\hyperlink{classTable}{Table}}$<$ char $>$ \&table, const std\+::size\+\_\+t level=1) const
+\mbox{\hyperlink{classTable}{Table}}$<$ char $>$ \mbox{\hyperlink{classGol_a3e90703f332a6890d53b93bfd9a24527}{update}} (const \mbox{\hyperlink{classTable}{Table}}$<$ char $>$ \&table, const std\+::size\+\_\+t step=1) const
 \begin{DoxyCompactList}\small\item\em Update table. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classGol_a21744223dbf4d2cfaf352ba350c6be10}{mushrooms}} (const \mbox{\hyperlink{classTable}{Table}}$<$ char $>$ \&table, const std\+::size\+\_\+t index1, const std\+::size\+\_\+t index2) const
 \begin{DoxyCompactList}\small\item\em Get number of adjacent mushrooms. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -40,11 +40,11 @@ A class that helps to process game of life tables.
 
 Construct a new \mbox{\hyperlink{classGol}{Gol}} object. 
 
-\mbox{\Hypertarget{classGol_a127b69d1f0c06910a8030b0cebc1e7c2}\label{classGol_a127b69d1f0c06910a8030b0cebc1e7c2}} 
+\mbox{\Hypertarget{classGol_a703e0252524f43c9b88d1085e84f7f4d}\label{classGol_a703e0252524f43c9b88d1085e84f7f4d}} 
 \index{Gol@{Gol}!Gol@{Gol}}
 \index{Gol@{Gol}!Gol@{Gol}}
 \doxysubsubsection{\texorpdfstring{Gol()}{Gol()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Gol\+::\+Gol (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTable}{Table}}$<$ char $>$ \&}]{table,  }\item[{const std\+::size\+\_\+t}]{lev }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Gol\+::\+Gol (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTable}{Table}}$<$ char $>$ \&}]{table,  }\item[{const std\+::size\+\_\+t}]{step }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -54,7 +54,7 @@ Construct a new \mbox{\hyperlink{classGol}{Gol}} object.
 \begin{DoxyParams}{Parameters}
 {\em table} & Final table of game \\
 \hline
-{\em lev} & Number of levels \\
+{\em step} & Number of steps \\
 \hline
 \end{DoxyParams}
 
@@ -95,11 +95,11 @@ Return initial table of game or empty table if impossible to solve.
 \begin{DoxyReturn}{Returns}
 \mbox{\hyperlink{classTable}{Table$<$char$>$}} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classGol_af4f5dc97796828bb3c6a639f592b62e4}\label{classGol_af4f5dc97796828bb3c6a639f592b62e4}} 
+\mbox{\Hypertarget{classGol_a3e90703f332a6890d53b93bfd9a24527}\label{classGol_a3e90703f332a6890d53b93bfd9a24527}} 
 \index{Gol@{Gol}!update@{update}}
 \index{update@{update}!Gol@{Gol}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classTable}{Table}}$<$char$>$ Gol\+::update (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTable}{Table}}$<$ char $>$ \&}]{table,  }\item[{const std\+::size\+\_\+t}]{level = {\ttfamily 1} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTable}{Table}}$<$char$>$ Gol\+::update (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTable}{Table}}$<$ char $>$ \&}]{table,  }\item[{const std\+::size\+\_\+t}]{step = {\ttfamily 1} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -109,7 +109,7 @@ Update table.
 \begin{DoxyParams}{Parameters}
 {\em table} & Initial table \\
 \hline
-{\em level} & Number of updates \\
+{\em step} & Number of steps \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
